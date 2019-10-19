@@ -14,17 +14,11 @@
     │       └── App.js - client application root component
     │
     ├── constructors
-    │       ├── apollo
-    │       ├── redux
-    │       ├── i18next.js - i18n translations backend bootstrap
-    │       └── next-i18next.js - NextJS i18n SSR translations bootstrap
+    │       └── redux
     │
     ├── pages
     ├── server
     ├── static
-    │     └── locales - i18n translation files
-    │           ├── en
-    │           └── zh
     ├── test
     │     ├── integration
     │     └── unit
