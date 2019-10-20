@@ -1,12 +1,12 @@
 import App from '../components/App'
 import Header from '../components/Header'
-import ExampleComponent from '../components/ExampleComponent'
+import InvestOptions from '../components/InvestOptions'
 
 export default ({}) => {
   return (
     <App>
       <Header />
-      <ExampleComponent />
+      <InvestOptions />
     </App>
   )
 }

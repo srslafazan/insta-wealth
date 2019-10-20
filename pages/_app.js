@@ -8,6 +8,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import blue from '@material-ui/core/colors/blue'
+import green from '@material-ui/core/colors/green'
 import red from '@material-ui/core/colors/red'
 
 
@@ -31,11 +32,12 @@ class MyApp extends App {
       <MuiThemeProvider theme={createMuiTheme({
         /* https://material-ui.com/customization/themes/ */
         palette: {
-          // primary: blue,
-          // secondary: green,
-          // error: red,
+          primary: blue,
+          secondary: green,
+          error: red,
         },
         status: {
+          success: green,
           danger: red,
         },
       })}>

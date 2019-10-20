@@ -1,14 +1,18 @@
 import Link from 'next/link'
 import { withRouter } from 'next/router'
+import MetaMaskConnector from './MetaMaskConnector'
 
 const Header = ({ router: { pathname } }) => {
+
   return (
     <header>
       <div>
-        <Link href='/'>
+        {/*<Link href='/'>
           <a className={pathname === '/' ? 'is-active' : ''}>Dashboard</a>
-        </Link>
+        </Link>*/}
+        <span>InstaWealth</span>
       </div>
+      <MetaMaskConnector />
       <style jsx>{`
         header {
           margin-bottom: 25px;
