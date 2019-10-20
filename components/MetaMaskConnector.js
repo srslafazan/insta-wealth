@@ -10,6 +10,14 @@ import constructERC20Contract from '../constructors/constructERC20Contract'
 import supportedTokens from '../constants/supportedTokens'
 import { useMetaMaskValue } from '../context/MetaMask';
 
+function metaMaskAvailable() {
+  return (typeof web3 !== 'undefined' && typeof ethereum !== 'undefined')
+}
+
+function getNetworkDisplayName(networkName) {
+  return (metaMaskAvailable() && networkName) || ''
+}
+
 
 const MetaMaskConnector = ({}) => {
   const [metaMaskContext, dispatch] = useMetaMaskValue()
@@ -18,11 +26,9 @@ const MetaMaskConnector = ({}) => {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      {selectedAddress ? (
-        <span style={{ color: green[500], display: 'flex', alignItems: 'center' }}>
-          <CheckCircleIcon style={{ marginRight: '5px' }} /> {networkName}
-        </span>
-      ) : <span>Disconnected</span>}
+      <span style={{ display: 'flex', alignItems: 'center' }}>
+        <CheckCircleIcon style={{ color: (selectedAddress ? green[500] : 'initial'), marginRight: '5px' }} /> {getNetworkDisplayName(networkName)}
+      </span>
       <Button
         children={
           (selectedAddress && (selectedAddress.substring(0, 10) + '...'))

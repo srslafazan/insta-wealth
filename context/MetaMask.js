@@ -10,6 +10,7 @@ export const MetaMaskContext = createContext()
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'updateEthereumEnabled': return { ...state, ethereumEnabled: action.payload }
     case 'updateSelectedAddress': return { ...state, selectedAddress: action.payload }
     case 'updateBalance': return { ...state, [action.token]: action.balance }
     case 'updateNetworkName': return { ...state, networkName: action.payload }
@@ -19,27 +20,38 @@ const reducer = (state, action) => {
   }
 }
 
-function fetchAddressInfo(address, dispatch = () => {}) {
+async function fetchAddressInfo(address, dispatch = () => {}) {
   /* Handle accounts changed */
   dispatch({ type: 'updateSelectedAddress', payload: address })
+  /* Get Address enabled */
+  const enabled = await ethereum.enable()
+  dispatch({ type: 'updateEthereumEnabled', payload: Boolean(enabled) })
+  if (!enabled) return
   /* Handle fetch ETH balance */
-  web3.eth.getBalance(ethereum.selectedAddress, (err, res) => {
+  web3.eth.getBalance(address, (err, res) => {
     if (err) {
       console.error(err)
       return
     }
     const balance = web3.fromWei(res.toString())
-    dispatch({ type: 'updateBalance', token: 'ETH', balance })
+    return dispatch({ type: 'updateBalance', token: 'ETH', balance })
   })
   /* Handle fetch token balances */
   supportedTokens.forEach(token => {
-    const contract = constructERC20Contract(getContractAddressForAsset(token))
-    contract.balanceOf(ethereum.selectedAddress, (err, res) => {
-      if (err) return
-      dispatch({ type: 'updateBalance', token, balance: res.toString() })
-    })
+    if (!address) {
+      return dispatch({ type: 'updateBalance', token, balance: 0 })
+    } else {
+      const contract = constructERC20Contract(getContractAddressForAsset(token))
+      contract.balanceOf(address, (err, res) => {
+        if (err) {
+          console.error(err)
+          return
+        }
+        return dispatch({ type: 'updateBalance', token, balance: res.toString() })
+      })
+    }
   })
-
+  /* Update network */
   dispatch({ type: 'updateNetworkId', payload: ethereum.networkVersion })
   dispatch({ type: 'updateNetworkName', payload: getNetworkName(ethereum.networkVersion) })
 }
@@ -49,10 +61,16 @@ export const MetaMaskProvider = ({ initialState = { selectedAddress: null }, chi
   const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
-    fetchAddressInfo(ethereum.selectedAddress, dispatch)
     window.ethereum.on('accountsChanged', (accounts) => {
-      fetchAddressInfo(accounts[0], dispatch)
+      if (!accounts[0]) {
+        dispatch({ type: 'updateSelectedAddress', payload: null })
+      } else {
+        fetchAddressInfo(accounts[0], dispatch) /* Async */
+      }
     })
+    if (ethereum.selectedAddress) {
+      fetchAddressInfo(ethereum.selectedAddress, dispatch) /* Async */
+    }
   }, [typeof window !== 'undefined' && typeof window.ethereum !== 'undefined' && ethereum.selectedAddress])
 
   return (
