@@ -1,0 +1,10 @@
+const FakeComptroller = artifacts.require("FakeComptroller")
+
+contract("FakeComptroller", accounts => {
+  it("is available", () =>
+    FakeComptroller.deployed()
+      .then(instance => {
+        expect(instance).to.be.ok
+      })
+    )
+})
