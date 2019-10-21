@@ -30,9 +30,10 @@
     │     └── index.js
     │
     ├── public
-    ├── server
+    ├── server - NextJS webserver
     ├── styles
-    ├── test
+    ├── test - Truffle tests
+    ├── tests
     │     ├── integration
     │     └── unit
     │

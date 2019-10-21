@@ -7,6 +7,11 @@ module.exports = {
     }
   },
 
+  mocha: {
+    useColors: true,
+    // "watch-files": ["truffleTests/**/*.js"],
+  },
+
   compilers: {
     solc: {
       version: '0.5.12',

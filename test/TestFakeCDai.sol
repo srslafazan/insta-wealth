@@ -2,9 +2,9 @@ pragma solidity >=0.4.25 <0.6.0;
 
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
-import "../contracts/development/Compound/FakeComptroller.sol";
-import "../contracts/development/Compound/FakeCDai.sol";
-import "../contracts/development/Compound/FakeCDaiInterestRateModel.sol";
+import "../compound/contracts/development/Compound/FakeComptroller.sol";
+import "../compound/contracts/development/Compound/FakeCDai.sol";
+import "../compound/contracts/development/Compound/FakeCDaiInterestRateModel.sol";
 
 contract TestFakeCDai {
 
@@ -28,12 +28,12 @@ contract TestFakeCDai {
     interestRateModel = new FakeCDaiInterestRateModel();
   }
 
-  function testCdai() public {
+  // function testCdai() public {
     // cdai = new FakeCDai(
     //   addr,
     //   comptroller,
     //   interestRateModel
     // );
-  }
+  // }
 
 }
