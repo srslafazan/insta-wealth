@@ -6,10 +6,21 @@
   "author": "Shain Lafazan",
   "scripts": {
     "dev": "nodemon -w server/ server/",
-    "setup": "yarn install",
+    "setup": "yarn install && yarn setup:compound && yarn setup:kyber",
+    "setup:compound": "cd compound && yarn setup && cd ../ && cd kyber && yarn setup",
+    "setup:kyber": "cd kyber && yarn setup",
     "build": "next build",
     "start": "NODE_ENV=production node --optimize_for_size --max_old_space_size=920 --gc_interval=100 ./server",
     "ganache": "./node_modules/.bin/ganache-cli --accounts 10 --defaultBalanceEther 1000 --deterministic --mnemonic 'myth like bonus scare over problem client lizard pioneer submit female collect' --networkId 5777 --debug --allowUnlimitedContractSize",
+    "migrate": "yarn truffle:migrate:all",
+    "truffle:compile": "./node_modules/.bin/truffle compile",
+    "truffle:compile:compound": "cd compound && ./node_modules/.bin/truffle compile",
+    "truffle:compile:kyber": "cd kyber && ./node_modules/.bin/truffle compile",
+    "truffle:compile:all": "yarn truffle:compile:compound && yarn truffle:compile:kyber && yarn truffle:compile",
+    "truffle:migrate": "./node_modules/.bin/truffle migrate",
+    "truffle:migrate:compound": "cd compound && ./node_modules/.bin/truffle migrate",
+    "truffle:migrate:kyber": "cd kyber && ./node_modules/.bin/truffle migrate",
+    "truffle:migrate:all": "yarn truffle:migrate:compound && yarn truffle:migrate:kyber && yarn truffle:migrate",
     "test:unit": "./node_modules/.bin/jest",
     "test:unit:watch": "./node_modules/.bin/jest --watch",
     "test:integration": "./node_modules/.bin/jest --config=./jest.integration.config.js",
@@ -47,5 +58,9 @@
     "ws": "^7.1.2",
     "xmlhttprequest": "^1.8.0",
     "yarn": "^1.17.3"
+  },
+  "devDependencies": {
+    "eth-token-recover": "^2.3.4",
+    "truffle": "^5.0.41"
   }
 }

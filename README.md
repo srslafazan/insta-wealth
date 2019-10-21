@@ -10,34 +10,55 @@
 
 ```
     .
-    ├── components
-    │       └── App.js - client application root component
     │
+    ├── compound - Compound Finance contracts
+    ├── constants
     ├── constructors
-    │       └── redux
+    ├── components
+    │       ├── App.js - client application root component
+    │       └── ...
     │
+    ├── context - React context
+    ├── contracts - Truffle contracts
+    ├── constructors
+    ├── kyber - Kyber Network contracts
+    ├── migrations - Truffle migrations
     ├── pages
+    │     ├── _app.js
+    │     ├── _document.js
+    │     ├── ...
+    │     └── index.js
+    │
+    ├── public
     ├── server
-    ├── static
+    ├── styles
     ├── test
     │     ├── integration
     │     └── unit
     │
-    └── styles
+    └── utils
 
 ```
 
 ## Setup
 
 ```bash
-yarn setup
+yarn setup # installs dependencies and compiles contracts
+```
+
+## Migrations
+
+```bash
+yarn ganache # runs ganache-cli ethereum node mock
+yarn migrate # runs all migrations
 ```
 
 
 ## Run
 
 ```bash
-yarn dev
+yarn ganache
+yarn dev # runs dev webserver
 open http://127.0.0.1:3000
 ```
 

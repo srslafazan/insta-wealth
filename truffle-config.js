@@ -9,7 +9,7 @@ module.exports = {
 
   compilers: {
     solc: {
-      version: '0.5.8',
+      version: '0.5.12',
       settings: {
         // Required because large size of cToken and cEther contracts
         optimizer: {
