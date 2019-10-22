@@ -1,6 +1,5 @@
 import App from 'next/app'
 import React from 'react'
-import { Provider } from 'react-redux'
 
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
@@ -26,9 +25,7 @@ class MyApp extends App {
     return (
       <MuiThemeProvider theme={createMuiTheme(muiTheme)}>
         <CssBaseline />
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
+        <Component {...pageProps} />
       </MuiThemeProvider>
     )
   }

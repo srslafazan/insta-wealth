@@ -6,7 +6,7 @@ export default ({ children }) => {
     <MetaMaskProvider>
       <main>
         {children}
-       <style jsx global>{`
+        <style jsx global>{`
           * {
             font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono',
               'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New',

@@ -17,12 +17,9 @@ contract KyberNetworkProxy {
     function tradeWithHint(ERC20 src, uint srcAmount, ERC20 dest, address destAddress, uint maxDestAmount,
         uint minConversionRate, address walletId, bytes memory hint) public payable returns(uint);
 
-    function swapTokenToToken(
-        ERC20 src,
-        uint srcAmount,
-        ERC20 dest,
-        uint minConversionRate
-    )
-        public
-        returns(uint);
+    function swapTokenToToken(ERC20 src, uint srcAmount, ERC20 dest, uint minConversionRate) public returns(uint);
+
+    function swapEtherToToken(ERC20 token, uint minConversionRate) public payable returns(uint);
+
+    function swapTokenToEther(ERC20 token, uint srcAmount, uint minConversionRate) public returns(uint);
 }
