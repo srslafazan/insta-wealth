@@ -61,7 +61,10 @@
     "yarn": "^1.17.3"
   },
   "devDependencies": {
+    "@mblackmblack/to-seconds": "^0.1.0",
+    "bignumber.js": "^9.0.0",
     "eth-token-recover": "^2.3.4",
+    "openzeppelin-solidity": "^2.3.0",
     "truffle": "^5.0.41"
   }
 }
