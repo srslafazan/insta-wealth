@@ -2,11 +2,11 @@ import 'openzeppelin-solidity/contracts/token/ERC20/ERC20.sol';
 import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
 
 import './Loans.sol';
-import './CompoundHelper.sol';
+import './ALCompound.sol';
 
 pragma solidity ^0.5.8;
 
-contract Funds is DSMath, CompoundHelper {
+contract Funds is DSMath, ALCompound {
     Loans loans;
 
     uint256 public constant DEFAULT_LIQUIDATION_RATIO = 1400000000000000000000000000;   // 140% (1.4x in RAY) minimum collateralization ratio
@@ -20,7 +20,7 @@ contract Funds is DSMath, CompoundHelper {
     mapping (address => uint256)   public secretHashIndex; // User secret hash index
 
     mapping (address => bytes)     public pubKeys;  // User A Coin PubKeys
-
+    
     mapping (bytes32 => Fund)      public funds;
     mapping (address => bytes32)   public fundOwner;
     mapping (bytes32 => Bools)     public bools;
@@ -134,11 +134,11 @@ contract Funds is DSMath, CompoundHelper {
         compoundSet = true;
     }
 
-    // NOTE: THE FOLLOWING FUNCTIONS ALLOW VARIABLES TO BE MODIFIED BY THE
-    //       DEPLOYER, SINCE THE ALGORITHM FOR CALCULATING GLOBAL INTEREST
+    // NOTE: THE FOLLOWING FUNCTIONS ALLOW VARIABLES TO BE MODIFIED BY THE 
+    //       DEPLOYER, SINCE THE ALGORITHM FOR CALCULATING GLOBAL INTEREST 
     //       RATE IS UNTESTED WITH A DECENTRALIZED PROTOCOL, AND MAY NEED TO
-    //       BE UPDATED IN THE CASE THAT RATES DO NOT UPDATE AS INTENDED. A
-    //       FUTURE ITERATION OF THE PROTOCOL WILL REMOVE THESE FUNCTIONS. IF
+    //       BE UPDATED IN THE CASE THAT RATES DO NOT UPDATE AS INTENDED. A 
+    //       FUTURE ITERATION OF THE PROTOCOL WILL REMOVE THESE FUNCTIONS. IF 
     //       YOU WISH TO OPT OUT OF GLOBAL APR YOU CAN CREATE A CUSTOM LOAN FUND
     // ======================================================================
 
@@ -362,7 +362,7 @@ contract Funds is DSMath, CompoundHelper {
         address  arbiter_,
         bool     compoundEnabled_,
         uint256  amount_
-    ) external returns (bytes32 fund) {
+    ) external returns (bytes32 fund) { 
         require(funds[fundOwner[msg.sender]].lender != msg.sender || msg.sender == deployer); // Only allow one loan fund per address
         require(ensureNotZero(maxLoanDur_) != 2**256-1 || ensureNotZero(fundExpiry_) != 2**256-1); // Make sure someone can't request a loan for eternity
         if (!compoundSet) { require(compoundEnabled_ == false); }
@@ -654,7 +654,7 @@ contract Funds is DSMath, CompoundHelper {
     /**
      * @notice Calculate and update Global Interest Rate
      * @dev Implementation returns Global Interest Rate per second in RAY
-     *
+     *      
      *      Note: Only updates interest rate if interestUpdateDelay has passed since last update
      *            if utilizationRatio increases newAPR = oldAPR + (min(10%, utilizationRatio) / 10)
      *            if utilizationRatio decreases newAPR = oldAPR - (max(10%, utilizationRatio) / 10)
@@ -709,7 +709,7 @@ contract Funds is DSMath, CompoundHelper {
      * @param fund The Id of a Loan Fund
      * @param amount_ Amount of tokens to request
      * @param collateral_ Amount of collateral to deposit in satoshis
-     * @param loanDur_ Length of loan request in seconds
+     * @param loanDur_ Length of loan request in seconds     
      */
     function createLoan(
         bytes32  fund,

@@ -21,7 +21,7 @@ var PriceOracleProxy = artifacts.require('./PriceOracleProxy.sol')
 var PriceOracle = artifacts.require('./_PriceOracle.sol')
 var MakerMedianizer = artifacts.require('./_MakerMedianizer.sol')
 
-var ALCompound = artifacts.require('./CompoundHelper.sol')
+var ALCompound = artifacts.require('./ALCompound.sol')
 
 module.exports = function(deployer, network, accounts) {
   deployer.then(async () => {

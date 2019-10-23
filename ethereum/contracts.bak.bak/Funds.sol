@@ -6,7 +6,7 @@ import './CompoundHelper.sol';
 
 pragma solidity ^0.5.8;
 
-contract CompoundModule is DSMath, CompoundHelper {
+contract Funds is DSMath, CompoundHelper {
     Loans loans;
 
     uint256 public constant DEFAULT_LIQUIDATION_RATIO = 1400000000000000000000000000;   // 140% (1.4x in RAY) minimum collateralization ratio

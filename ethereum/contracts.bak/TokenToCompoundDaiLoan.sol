@@ -4,15 +4,19 @@
 pragma solidity ^0.5.12;
 
 import "./ERC20.sol";
+import "../contracts/CErc20.sol";
 import "./KyberNetworkProxy.sol";
+import "../contracts/CompoundModule.sol";
 
 
 contract TokenToCompoundDaiLoan {
 
     // event Swap(address indexed sender, ERC20 srcToken, ERC20 destToken, uint amount);
 
-    CompoundFinanceProxy public compoundProxy = CompoundFinanceProxy(0xA57B8a5584442B467b4689F1144D269d096A3daF);
+    // CompoundFinanceProxy public compoundProxy = CompoundFinanceProxy(0xA57B8a5584442B467b4689F1144D269d096A3daF);
     KyberNetworkProxy public kyberProxy = KyberNetworkProxy(0xA57B8a5584442B467b4689F1144D269d096A3daF);
+    // CompoundModule public compound = CompoundModule(0xA57B8a5584442B467b4689F1144D269d096A3daF);
+    CErc20 public cDai = CErc20(ADDR);
     ERC20 constant internal ETH_TOKEN_ADDRESS = ERC20(0x00eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee);
 
     // Events

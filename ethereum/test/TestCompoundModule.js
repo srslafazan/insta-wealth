@@ -1,25 +1,50 @@
-const ExampleCoin = artifacts.require("./ExampleDaiCoin.sol");
-const Funds = artifacts.require("./Funds.sol");
+const ExampleDaiCoin = artifacts.require("./ExampleDaiCoin.sol");
 const CErc20 = artifacts.require('./CErc20.sol');
 const CEther = artifacts.require('./CEther.sol');
 const Comptroller = artifacts.require('./Comptroller.sol')
-const Compound = artifacts.require('./CompoundHelper.sol');
+const CompoundModule = artifacts.require('./CompoundModule.sol');
+
+const utils = require('./helpers/Utils.js');
+const { rateToSec, numToBytes32, toBaseUnit } = utils;
+const { toWei, fromWei } = web3.utils;
+
+const stablecoins = [ { name: 'DAI', unit: 'ether' }, { name: 'USDC', unit: 'mwei' } ]
+
 
 contract("CompoundHelper", accounts => {
   beforeEach(async function () {
-    this.token = await ExampleCoin.deployed();
+    this.token = await ExampleDaiCoin.deployed();
     this.cErc20 = await CErc20.deployed();
     this.cEther = await CEther.deployed();
-    this.compound = await Compound.deployed();
+    this.compound = await CompoundModule.deployed();
     this.comptroller = await Comptroller.deployed();
-    this.compoundHelper = await Funds.deployed();
+
+    console.log(this.token.address)
+    console.log(this.cErc20.address)
+    console.log(this.cEther.address)
+
   })
 
-  describe('getComptrollerAddress', async function() {
-    it('should return current comptroller address', async function() {
-      const expectedComptrollerAddress = this.comptroller.address
-      const actualComptrollerAddress = await this.compoundHelper.getComptrollerAddress.call()
-      assert.equal(expectedComptrollerAddress, actualComptrollerAddress)
+  stablecoins.forEach(({ name, unit }) => {
+    contract(`${name} Compound`, accounts => {
+      // const lender = accounts[0]
+      // const borrower = accounts[1]
+      // const arbiter = accounts[2]
+
+      console.log(name, unit, accounts)
+
+      describe('deposit', function() {
+        it('should work', async function() {
+
+          const result = await this.compound.deposit(toWei('1', 'ether'))
+          console.log(result)
+
+        })
+
+      })
     })
+
   })
+
+
 })
