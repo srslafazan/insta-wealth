@@ -4,6 +4,32 @@
   "license": "UNLICENSED",
   "private": true,
   "author": "Shain Lafazan",
+  "engines": {
+    "node": "~8.12.0"
+  },
+  "dependencies": {
+    "add": "^2.0.6",
+    "ganache-cli": "^6.7.0",
+    "web3": "^1.2.1",
+    "yarn": "^1.17.3"
+  },
+  "devDependencies": {
+    "@atomicloans/loan-bundle": "^0.3.3",
+    "@liquality/bundle": "^0.4.6",
+    "@liquality/crypto": "^0.4.6",
+    "@liquality/ethereum-utils": "^0.4.6",
+    "@mblackmblack/to-seconds": "^0.1.0",
+    "axios": "^0.19.0",
+    "bignumber.js": "^9.0.0",
+    "chai": "^4.2.0",
+    "decimal.js": "^10.2.0",
+    "eth-token-recover": "^2.3.4",
+    "lodash": "^4.17.15",
+    "openzeppelin-solidity": "^2.3.0",
+    "openzeppelin-test-helpers": "^0.5.1",
+    "scrypt": "^6.0.3",
+    "truffle": "^5.0.41"
+  },
   "scripts": {
     "setup": "yarn install",
     "ganache": "./node_modules/.bin/ganache-cli --accounts 10 --defaultBalanceEther 1000 --deterministic --mnemonic 'myth like bonus scare over problem client lizard pioneer submit female collect' --networkId 5777 --debug --allowUnlimitedContractSize",
@@ -13,18 +39,5 @@
     "truffle:compile": "./node_modules/.bin/truffle compile",
     "truffle:migrate": "./node_modules/.bin/truffle migrate",
     "truffle:test": "./node_modules/.bin/truffle test"
-  },
-  "dependencies": {
-    "add": "^2.0.6",
-    "ganache-cli": "^6.7.0",
-    "web3": "^1.2.1",
-    "yarn": "^1.17.3"
-  },
-  "devDependencies": {
-    "@mblackmblack/to-seconds": "^0.1.0",
-    "bignumber.js": "^9.0.0",
-    "eth-token-recover": "^2.3.4",
-    "openzeppelin-solidity": "^2.3.0",
-    "truffle": "^5.0.41"
   }
 }

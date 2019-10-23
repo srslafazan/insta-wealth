@@ -12,14 +12,13 @@ contract("CompoundHelper", accounts => {
     this.cEther = await CEther.deployed();
     this.compound = await Compound.deployed();
     this.comptroller = await Comptroller.deployed();
-    this.alcompound = await Funds.deployed();
+    this.compoundHelper = await Funds.deployed();
   })
 
   describe('getComptrollerAddress', async function() {
     it('should return current comptroller address', async function() {
       const expectedComptrollerAddress = this.comptroller.address
-      const actualComptrollerAddress = await this.alcompound.getComptrollerAddress.call()
-
+      const actualComptrollerAddress = await this.compoundHelper.getComptrollerAddress.call()
       assert.equal(expectedComptrollerAddress, actualComptrollerAddress)
     })
   })
