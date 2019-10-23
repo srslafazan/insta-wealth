@@ -1,0 +1,841 @@
+{
+  "contractName": "FakeCDaiInterestRateModel",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "cash",
+          "type": "uint256"
+        },
+        {
+          "name": "borrows",
+          "type": "uint256"
+        },
+        {
+          "name": "_reserves",
+          "type": "uint256"
+        }
+      ],
+      "name": "getBorrowRate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "multiplier",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "baseRate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isInterestRateModel",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "blocksPerYear",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"cash\",\"type\":\"uint256\"},{\"name\":\"borrows\",\"type\":\"uint256\"},{\"name\":\"_reserves\",\"type\":\"uint256\"}],\"name\":\"getBorrowRate\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"multiplier\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"baseRate\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isInterestRateModel\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"blocksPerYear\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{\"getBorrowRate(uint256,uint256,uint256)\":{\"details\":\"The return value should be scaled by 1e18, thus a return value of     `(true, 1000000000000)` implies an interest rate of 0.000001 or 0.0001% *per block*.\",\"params\":{\"_reserves\":\"The total reserves of the underlying asset in the CToken\",\"borrows\":\"The total borrows of the underlying asset in the CToken\",\"cash\":\"The total cash of the underlying asset in the CToken\"},\"return\":\"Success or failure and the borrow interest rate per block scaled by 10e18\"}}},\"userdoc\":{\"methods\":{\"getBorrowRate(uint256,uint256,uint256)\":{\"notice\":\"Gets the current borrow interest rate based on the given asset, total cash, total borrows        and total reserves.\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/FakeCDaiInterestRateModel.sol\":\"FakeCDaiInterestRateModel\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/FakeCDaiInterestRateModel.sol\":{\"keccak256\":\"0x9f6fe391641e2810c894640c2e0a5d062b4829e9e20454d3098bc411ba5ff05d\",\"urls\":[\"bzzr://7852d3cd091fed5a232ddaf0a01f28be63bb2a09520bdc86955fbee94941c073\"]},\"/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/src/CarefulMath.sol\":{\"keccak256\":\"0x98ded744d46c6158f14a6e0fd315164e40d12a3d4f745f38d5ead7dfafa004d1\",\"urls\":[\"bzzr://be2d59711dab44c6ccb8ab5844f7d7cf1a12c56bdc9bc7a043602be9358917d4\"]},\"/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/src/Exponential.sol\":{\"keccak256\":\"0xa56d561c098aae7b6ea676949fcc9967738ae2d7fc6a3670ca0c744cad9e1299\",\"urls\":[\"bzzr://6e255e633b52e4edb31efb558b3cb55b974e1d82172dcc3873eeb6ca4505edf6\"]},\"/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/src/InterestRateModel.sol\":{\"keccak256\":\"0x75b8d58fe52a4a2ef72fcc86da217450f488b47da2e0065e2775ef7b1c11698e\",\"urls\":[\"bzzr://bbfb6d6e42275d0b9f796e277e4722972c6d2cf71eb835f9ba4f2320709cb26f\"]},\"/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/src/WhitePaperInterestRateModel.sol\":{\"keccak256\":\"0xaed4415ce9fa07ea3df7165455aac72fd11a253e80f32aafc18c29a6a0ab3478\",\"urls\":[\"bzzr://c3b689be8a9c7a46352c76dab3bb7e4a3a203a49ac65fa26119f974b0fb36ad5\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5066b1a2bc2ec500006001556701aa535d3d0c0000600055610622806100376000396000f3fe608060405234801561001057600080fd5b50600436106100675760003560e01c80631f68f20a116100505780631f68f20a146100c85780632191f92a146100d0578063a385fb96146100ec57610067565b806315f240531461006c5780631b3ed722146100ae575b600080fd5b6100956004803603606081101561008257600080fd5b50803590602081013590604001356100f4565b6040805192835260208301919091528051918290030190f35b6100b661018d565b60408051918252519081900360200190f35b6100b6610193565b6100d8610199565b604080519115158252519081900360200190f35b6100b661019e565b60008060006101016105e3565b6101096105e3565b61011388886101a5565b91945092509050600083600481111561012857fe5b146101485782600481111561013957fe5b94506000935061018592505050565b60006101526105e3565b61015f8362201480610322565b9092509050600082600381111561017257fe5b1461017957fe5b51600096509450505050505b935093915050565b60005481565b60015481565b600181565b6220148081565b60006101af6105e3565b6101b76105e3565b60006101c16105e3565b6101cb878761038c565b909250905060008260048111156101de57fe5b1461020c5750604080516020808201835260008083528351918201909352918252919450909250905061031b565b60006102166105e3565b6102228360005461044e565b9092509050600082600381111561023557fe5b14610267575050604080516020808201835260008083528351918201909352918252600396509450925061031b915050565b60006102716105e3565b61028383670de0b6b3a7640000610322565b9092509050600082600381111561029657fe5b1461029d57fe5b60006102a76105e3565b6102c1836040518060200160405280600154815250610469565b909250905060008260038111156102d457fe5b1461030a57505060408051602080820183526000808352835191820190935291825260049a509850965061031b95505050505050565b60009a509598509496505050505050505b9250925092565b600061032c6105e3565b60008061033d8660000151866104a3565b9092509050600082600381111561035057fe5b1461036f57506040805160208101909152600081529092509050610385565b6040805160208101909152908152600093509150505b9250929050565b60006103966105e3565b826103b35750506040805160208101909152600080825290610385565b6000806103c086866104ce565b909250905060008260038111156103d357fe5b146103f4575050604080516020810190915260008152600192509050610385565b60006103fe6105e3565b61040887846104f4565b9092509050600082600381111561041b57fe5b1461043f575050604080516020810190915260008152600294509250610385915050565b60009890975095505050505050565b60006104586105e3565b60008061033d8660000151866105a4565b60006104736105e3565b600080610488866000015186600001516104ce565b60408051602081019091529081529097909650945050505050565b600080826104b75750600190506000610385565b60008385816104c257fe5b04915091509250929050565b6000808383018481106104e657600092509050610385565b506002915060009050610385565b60006104fe6105e3565b60008061051386670de0b6b3a76400006105a4565b9092509050600082600381111561052657fe5b1461054557506040805160208101909152600081529092509050610385565b60008061055283886104a3565b9092509050600082600381111561056557fe5b1461058757506040805160208101909152600081529094509250610385915050565b604080516020810190915290815260009890975095505050505050565b600080836105b757506000905080610385565b838302838582816105c457fe5b04146105d857506002915060009050610385565b600092509050610385565b604051806020016040528060008152509056fea165627a7a723058209ffeb1faa14f4dc109d03ac9390b5f6f36338b884137c3cabd50559062969cca0029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100675760003560e01c80631f68f20a116100505780631f68f20a146100c85780632191f92a146100d0578063a385fb96146100ec57610067565b806315f240531461006c5780631b3ed722146100ae575b600080fd5b6100956004803603606081101561008257600080fd5b50803590602081013590604001356100f4565b6040805192835260208301919091528051918290030190f35b6100b661018d565b60408051918252519081900360200190f35b6100b6610193565b6100d8610199565b604080519115158252519081900360200190f35b6100b661019e565b60008060006101016105e3565b6101096105e3565b61011388886101a5565b91945092509050600083600481111561012857fe5b146101485782600481111561013957fe5b94506000935061018592505050565b60006101526105e3565b61015f8362201480610322565b9092509050600082600381111561017257fe5b1461017957fe5b51600096509450505050505b935093915050565b60005481565b60015481565b600181565b6220148081565b60006101af6105e3565b6101b76105e3565b60006101c16105e3565b6101cb878761038c565b909250905060008260048111156101de57fe5b1461020c5750604080516020808201835260008083528351918201909352918252919450909250905061031b565b60006102166105e3565b6102228360005461044e565b9092509050600082600381111561023557fe5b14610267575050604080516020808201835260008083528351918201909352918252600396509450925061031b915050565b60006102716105e3565b61028383670de0b6b3a7640000610322565b9092509050600082600381111561029657fe5b1461029d57fe5b60006102a76105e3565b6102c1836040518060200160405280600154815250610469565b909250905060008260038111156102d457fe5b1461030a57505060408051602080820183526000808352835191820190935291825260049a509850965061031b95505050505050565b60009a509598509496505050505050505b9250925092565b600061032c6105e3565b60008061033d8660000151866104a3565b9092509050600082600381111561035057fe5b1461036f57506040805160208101909152600081529092509050610385565b6040805160208101909152908152600093509150505b9250929050565b60006103966105e3565b826103b35750506040805160208101909152600080825290610385565b6000806103c086866104ce565b909250905060008260038111156103d357fe5b146103f4575050604080516020810190915260008152600192509050610385565b60006103fe6105e3565b61040887846104f4565b9092509050600082600381111561041b57fe5b1461043f575050604080516020810190915260008152600294509250610385915050565b60009890975095505050505050565b60006104586105e3565b60008061033d8660000151866105a4565b60006104736105e3565b600080610488866000015186600001516104ce565b60408051602081019091529081529097909650945050505050565b600080826104b75750600190506000610385565b60008385816104c257fe5b04915091509250929050565b6000808383018481106104e657600092509050610385565b506002915060009050610385565b60006104fe6105e3565b60008061051386670de0b6b3a76400006105a4565b9092509050600082600381111561052657fe5b1461054557506040805160208101909152600081529092509050610385565b60008061055283886104a3565b9092509050600082600381111561056557fe5b1461058757506040805160208101909152600081529094509250610385915050565b604080516020810190915290815260009890975095505050505050565b600080836105b757506000905080610385565b838302838582816105c457fe5b04146105d857506002915060009050610385565b600092509050610385565b604051806020016040528060008152509056fea165627a7a723058209ffeb1faa14f4dc109d03ac9390b5f6f36338b884137c3cabd50559062969cca0029",
+  "sourceMap": "74:193:2:-;;;146:119;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;199:17:2;1035:8:21;:20;224:17:2;1065:10:21;:24;74:193:2;;;;;;",
+  "deployedSourceMap": "74:193:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;74:193:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;5026:893:21;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;5026:893:21;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;643:22;;;:::i;:::-;;;;;;;;;;;;;;;;778:20;;;:::i;481:47::-;;;:::i;:::-;;;;;;;;;;;;;;;;;;921:44;;;:::i;5026:893::-;5111:4;5117;5187:12;5201:27;;:::i;:::-;5230;;:::i;:::-;5261:48;5295:4;5301:7;5261:33;:48::i;:::-;5186:123;;-1:-1:-1;5186:123:21;-1:-1:-1;5186:123:21;-1:-1:-1;5331:16:21;5323:4;:24;;;;;;;;;5319:77;;5376:4;5371:10;;;;;;;;5363:22;-1:-1:-1;5383:1:21;;-1:-1:-1;5363:22:21;;-1:-1:-1;;;5363:22:21;5319:77;5459:14;5475:21;;:::i;:::-;5500:42;5510:16;958:7;5500:9;:42::i;:::-;5458:84;;-1:-1:-1;5458:84:21;-1:-1:-1;5685:18:21;5677:4;:26;;;;;;;;;5670:34;;;;5892:19;5873:16;;-1:-1:-1;5892:19:21;-1:-1:-1;;;;;5026:893:21;;;;;;;:::o;643:22::-;;;;:::o;778:20::-;;;;:::o;481:47::-;524:4;481:47;:::o;921:44::-;958:7;921:44;:::o;2231:2129::-;2322:7;2331:10;;:::i;:::-;2343;;:::i;:::-;2366:12;2380:26;;:::i;:::-;2410:33;2429:4;2435:7;2410:18;:33::i;:::-;2365:78;;-1:-1:-1;2365:78:21;-1:-1:-1;2465:16:21;2457:4;:24;;;;;;;;;2453:108;;-1:-1:-1;2511:18:21;;;;;;;;;-1:-1:-1;2511:18:21;;;2531;;;;;;;;;;;2505:4;;-1:-1:-1;2511:18:21;;-1:-1:-1;2531:18:21;-1:-1:-1;2497:53:21;;2453:108;2724:14;2740:31;;:::i;:::-;2775:38;2785:15;2802:10;;2775:9;:38::i;:::-;2723:90;;-1:-1:-1;2723:90:21;-1:-1:-1;3249:18:21;3241:4;:26;;;;;;;;;3237:144;;-1:-1:-1;;3331:18:21;;;;;;;;;-1:-1:-1;3331:18:21;;;3351;;;;;;;;;;;3291:38;;-1:-1:-1;3331:18:21;-1:-1:-1;3351:18:21;-1:-1:-1;3283:87:21;;-1:-1:-1;;3283:87:21;3237:144;3392:14;3408:32;;:::i;:::-;3444:44;3454:20;481:4:16;3444:9:21;:44::i;:::-;3391:97;;-1:-1:-1;3391:97:21;-1:-1:-1;3616:18:21;3608:4;:26;;;;;;;;;3601:34;;;;3689:14;3705:27;;:::i;:::-;3736:56;3743:21;3766:25;;;;;;;;3781:8;;3766:25;;;3736:6;:56::i;:::-;3688:104;;-1:-1:-1;3688:104:21;-1:-1:-1;4158:18:21;4150:4;:26;;;;;;;;;4146:137;;-1:-1:-1;;4233:18:21;;;;;;;;;-1:-1:-1;4233:18:21;;;4253;;;;;;;;;;;4200:31;;-1:-1:-1;4233:18:21;-1:-1:-1;4253:18:21;-1:-1:-1;4192:80:21;;-1:-1:-1;;;;;;4192:80:21;4146:137;4301:16;;-1:-1:-1;4319:15:21;;-1:-1:-1;4336:16:21;;-1:-1:-1;;;;;;;2231:2129:21;;;;;;:::o;3331:350:16:-;3400:9;3411:10;;:::i;:::-;3434:14;3450:21;3475:27;3483:1;:10;;;3495:6;3475:7;:27::i;:::-;3433:69;;-1:-1:-1;3433:69:16;-1:-1:-1;3524:18:16;3516:4;:26;;;;;;;;;3512:90;;-1:-1:-1;3572:18:16;;;;;;;;;-1:-1:-1;3572:18:16;;3566:4;;-1:-1:-1;3572:18:16;-1:-1:-1;3558:33:16;;3512:90;3640:33;;;;;;;;;;;;3620:18;;-1:-1:-1;3640:33:16;-1:-1:-1;;3331:350:16;;;;;;:::o;1384:736:21:-;1460:7;1469:10;;:::i;:::-;1495:12;1491:152;;-1:-1:-1;;1613:18:21;;;;;;;;;1595:16;1613:18;;;1595:16;1587:45;;1491:152;1654:14;1670:20;1694:22;1702:4;1708:7;1694;:22::i;:::-;1653:63;;-1:-1:-1;1653:63:21;-1:-1:-1;1738:18:21;1730:4;:26;;;;;;;;;1726:125;;-1:-1:-1;;1821:18:21;;;;;;;;;-1:-1:-1;1821:18:21;;1780:39;;-1:-1:-1;1821:18:21;-1:-1:-1;1772:68:21;;1726:125;1862:14;1878:26;;:::i;:::-;1908:32;1915:7;1924:15;1908:6;:32::i;:::-;1861:79;;-1:-1:-1;1861:79:21;-1:-1:-1;1962:18:21;1954:4;:26;;;;;;;;;1950:111;;-1:-1:-1;;2031:18:21;;;;;;;;;-1:-1:-1;2031:18:21;;2004:25;;-1:-1:-1;2031:18:21;-1:-1:-1;1996:54:21;;-1:-1:-1;;1996:54:21;1950:111;2079:16;;2097:15;;-1:-1:-1;1384:736:21;-1:-1:-1;;;;;;1384:736:21:o;2028:346:16:-;2097:9;2108:10;;:::i;:::-;2131:14;2147:19;2170:27;2178:1;:10;;;2190:6;2170:7;:27::i;1411:221::-;1478:9;1489:10;;:::i;:::-;1512:15;1529:11;1544:31;1552:1;:10;;;1564:1;:10;;;1544:7;:31::i;:::-;1601:23;;;;;;;;;;;;1511:64;;1601:23;;-1:-1:-1;1411:221:16;-1:-1:-1;;;;;1411:221:16:o;999:209:9:-;1055:9;;1086:6;1082:75;;-1:-1:-1;1116:26:9;;-1:-1:-1;1144:1:9;1108:38;;1082:75;1175:18;1199:1;1195;:5;;;;;;1167:34;;;;999:209;;;;;:::o;1648:250::-;1704:9;;1740:5;;;1760:6;;;1756:136;;1790:18;;-1:-1:-1;1810:1:9;-1:-1:-1;1782:30:9;;1756:136;-1:-1:-1;1851:26:9;;-1:-1:-1;1879:1:9;;-1:-1:-1;1843:38:9;;822:503:16;883:9;894:10;;:::i;:::-;917:14;933:20;957:22;965:3;481:4;957:7;:22::i;:::-;916:63;;-1:-1:-1;916:63:16;-1:-1:-1;1001:18:16;993:4;:26;;;;;;;;;989:90;;-1:-1:-1;1049:18:16;;;;;;;;;-1:-1:-1;1049:18:16;;1043:4;;-1:-1:-1;1049:18:16;-1:-1:-1;1035:33:16;;989:90;1090:14;1106:13;1123:31;1131:15;1148:5;1123:7;:31::i;:::-;1089:65;;-1:-1:-1;1089:65:16;-1:-1:-1;1176:18:16;1168:4;:26;;;;;;;;;1164:90;;-1:-1:-1;1224:18:16;;;;;;;;;-1:-1:-1;1224:18:16;;1218:4;;-1:-1:-1;1224:18:16;-1:-1:-1;1210:33:16;;-1:-1:-1;;1210:33:16;1164:90;1292:25;;;;;;;;;;;;-1:-1:-1;;1292:25:16;;-1:-1:-1;822:503:16;-1:-1:-1;;;;;;822:503:16:o;578:331:9:-;634:9;;665:6;661:67;;-1:-1:-1;695:18:9;;-1:-1:-1;695:18:9;687:30;;661:67;747:5;;;751:1;747;:5;:1;767:5;;;;;:10;763:140;;-1:-1:-1;801:26:9;;-1:-1:-1;829:1:9;;-1:-1:-1;793:38:9;;763:140;870:18;;-1:-1:-1;890:1:9;-1:-1:-1;862:30:9;;74:193:2;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.8;\n\nimport \"./src/WhitePaperInterestRateModel.sol\";\n\ncontract FakeCDaiInterestRateModel is WhitePaperInterestRateModel {\n    constructor()\n    WhitePaperInterestRateModel(\n      0.05 * (10 ** 18),\n      0.12 * (10 ** 18)\n    )\n    public\n    {}\n}\n",
+  "sourcePath": "/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/FakeCDaiInterestRateModel.sol",
+  "ast": {
+    "absolutePath": "/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/FakeCDaiInterestRateModel.sol",
+    "exportedSymbols": {
+      "FakeCDaiInterestRateModel": [
+        110
+      ]
+    },
+    "id": 111,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 88,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".8"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "absolutePath": "/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/src/WhitePaperInterestRateModel.sol",
+        "file": "./src/WhitePaperInterestRateModel.sol",
+        "id": 89,
+        "nodeType": "ImportDirective",
+        "scope": 111,
+        "sourceUnit": 8788,
+        "src": "25:47:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 90,
+              "name": "WhitePaperInterestRateModel",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 8787,
+              "src": "112:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_WhitePaperInterestRateModel_$8787",
+                "typeString": "contract WhitePaperInterestRateModel"
+              }
+            },
+            "id": 91,
+            "nodeType": "InheritanceSpecifier",
+            "src": "112:27:2"
+          }
+        ],
+        "contractDependencies": [
+          4736,
+          8177,
+          8198,
+          8787
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 110,
+        "linearizedBaseContracts": [
+          110,
+          8787,
+          8177,
+          4736,
+          8198
+        ],
+        "name": "FakeCDaiInterestRateModel",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 108,
+              "nodeType": "Block",
+              "src": "263:2:2",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 109,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_rational_50000000000000000_by_1",
+                      "typeString": "int_const 50000000000000000"
+                    },
+                    "id": 99,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "302e3035",
+                      "id": 94,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "199:4:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1_by_20",
+                        "typeString": "rational_const 1 / 20"
+                      },
+                      "value": "0.05"
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "*",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                            "typeString": "int_const 1000000000000000000"
+                          },
+                          "id": 97,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "3130",
+                            "id": 95,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "207:2:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_10_by_1",
+                              "typeString": "int_const 10"
+                            },
+                            "value": "10"
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "**",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "3138",
+                            "id": 96,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "213:2:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_18_by_1",
+                              "typeString": "int_const 18"
+                            },
+                            "value": "18"
+                          },
+                          "src": "207:8:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                            "typeString": "int_const 1000000000000000000"
+                          }
+                        }
+                      ],
+                      "id": 98,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "TupleExpression",
+                      "src": "206:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                        "typeString": "int_const 1000000000000000000"
+                      }
+                    },
+                    "src": "199:17:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_50000000000000000_by_1",
+                      "typeString": "int_const 50000000000000000"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_rational_120000000000000000_by_1",
+                      "typeString": "int_const 120000000000000000"
+                    },
+                    "id": 105,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "302e3132",
+                      "id": 100,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "224:4:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_3_by_25",
+                        "typeString": "rational_const 3 / 25"
+                      },
+                      "value": "0.12"
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "*",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                            "typeString": "int_const 1000000000000000000"
+                          },
+                          "id": 103,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "3130",
+                            "id": 101,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "232:2:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_10_by_1",
+                              "typeString": "int_const 10"
+                            },
+                            "value": "10"
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "**",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "3138",
+                            "id": 102,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "238:2:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_18_by_1",
+                              "typeString": "int_const 18"
+                            },
+                            "value": "18"
+                          },
+                          "src": "232:8:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                            "typeString": "int_const 1000000000000000000"
+                          }
+                        }
+                      ],
+                      "id": 104,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "TupleExpression",
+                      "src": "231:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                        "typeString": "int_const 1000000000000000000"
+                      }
+                    },
+                    "src": "224:17:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_120000000000000000_by_1",
+                      "typeString": "int_const 120000000000000000"
+                    }
+                  }
+                ],
+                "id": 106,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 93,
+                  "name": "WhitePaperInterestRateModel",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 8787,
+                  "src": "164:27:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_WhitePaperInterestRateModel_$8787_$",
+                    "typeString": "type(contract WhitePaperInterestRateModel)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "164:83:2"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 92,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "157:2:2"
+            },
+            "returnParameters": {
+              "id": 107,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "263:0:2"
+            },
+            "scope": 110,
+            "src": "146:119:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 111,
+        "src": "74:193:2"
+      }
+    ],
+    "src": "0:268:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/FakeCDaiInterestRateModel.sol",
+    "exportedSymbols": {
+      "FakeCDaiInterestRateModel": [
+        110
+      ]
+    },
+    "id": 111,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 88,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".8"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "absolutePath": "/Users/shain/repositories/insta-wealth/compound/contracts/development/Compound/src/WhitePaperInterestRateModel.sol",
+        "file": "./src/WhitePaperInterestRateModel.sol",
+        "id": 89,
+        "nodeType": "ImportDirective",
+        "scope": 111,
+        "sourceUnit": 8788,
+        "src": "25:47:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 90,
+              "name": "WhitePaperInterestRateModel",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 8787,
+              "src": "112:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_WhitePaperInterestRateModel_$8787",
+                "typeString": "contract WhitePaperInterestRateModel"
+              }
+            },
+            "id": 91,
+            "nodeType": "InheritanceSpecifier",
+            "src": "112:27:2"
+          }
+        ],
+        "contractDependencies": [
+          4736,
+          8177,
+          8198,
+          8787
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 110,
+        "linearizedBaseContracts": [
+          110,
+          8787,
+          8177,
+          4736,
+          8198
+        ],
+        "name": "FakeCDaiInterestRateModel",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 108,
+              "nodeType": "Block",
+              "src": "263:2:2",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 109,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_rational_50000000000000000_by_1",
+                      "typeString": "int_const 50000000000000000"
+                    },
+                    "id": 99,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "302e3035",
+                      "id": 94,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "199:4:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1_by_20",
+                        "typeString": "rational_const 1 / 20"
+                      },
+                      "value": "0.05"
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "*",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                            "typeString": "int_const 1000000000000000000"
+                          },
+                          "id": 97,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "3130",
+                            "id": 95,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "207:2:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_10_by_1",
+                              "typeString": "int_const 10"
+                            },
+                            "value": "10"
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "**",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "3138",
+                            "id": 96,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "213:2:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_18_by_1",
+                              "typeString": "int_const 18"
+                            },
+                            "value": "18"
+                          },
+                          "src": "207:8:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                            "typeString": "int_const 1000000000000000000"
+                          }
+                        }
+                      ],
+                      "id": 98,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "TupleExpression",
+                      "src": "206:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                        "typeString": "int_const 1000000000000000000"
+                      }
+                    },
+                    "src": "199:17:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_50000000000000000_by_1",
+                      "typeString": "int_const 50000000000000000"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_rational_120000000000000000_by_1",
+                      "typeString": "int_const 120000000000000000"
+                    },
+                    "id": 105,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "302e3132",
+                      "id": 100,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "224:4:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_3_by_25",
+                        "typeString": "rational_const 3 / 25"
+                      },
+                      "value": "0.12"
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "*",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                            "typeString": "int_const 1000000000000000000"
+                          },
+                          "id": 103,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "3130",
+                            "id": 101,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "232:2:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_10_by_1",
+                              "typeString": "int_const 10"
+                            },
+                            "value": "10"
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "**",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "3138",
+                            "id": 102,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "238:2:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_18_by_1",
+                              "typeString": "int_const 18"
+                            },
+                            "value": "18"
+                          },
+                          "src": "232:8:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                            "typeString": "int_const 1000000000000000000"
+                          }
+                        }
+                      ],
+                      "id": 104,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "TupleExpression",
+                      "src": "231:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                        "typeString": "int_const 1000000000000000000"
+                      }
+                    },
+                    "src": "224:17:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_120000000000000000_by_1",
+                      "typeString": "int_const 120000000000000000"
+                    }
+                  }
+                ],
+                "id": 106,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 93,
+                  "name": "WhitePaperInterestRateModel",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 8787,
+                  "src": "164:27:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_WhitePaperInterestRateModel_$8787_$",
+                    "typeString": "type(contract WhitePaperInterestRateModel)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "164:83:2"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 92,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "157:2:2"
+            },
+            "returnParameters": {
+              "id": 107,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "263:0:2"
+            },
+            "scope": 110,
+            "src": "146:119:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 111,
+        "src": "74:193:2"
+      }
+    ],
+    "src": "0:268:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x67B5656d60a809915323Bf2C40A8bEF15A152e3e",
+      "transactionHash": "0x105430a6dca38118e82dd461c585fba737f4a5a723d32e41642906fc5f03f81b"
+    }
+  },
+  "schemaVersion": "3.0.16",
+  "updatedAt": "2019-10-21T05:59:28.403Z",
+  "devdoc": {
+    "methods": {
+      "getBorrowRate(uint256,uint256,uint256)": {
+        "details": "The return value should be scaled by 1e18, thus a return value of     `(true, 1000000000000)` implies an interest rate of 0.000001 or 0.0001% *per block*.",
+        "params": {
+          "_reserves": "The total reserves of the underlying asset in the CToken",
+          "borrows": "The total borrows of the underlying asset in the CToken",
+          "cash": "The total cash of the underlying asset in the CToken"
+        },
+        "return": "Success or failure and the borrow interest rate per block scaled by 10e18"
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {
+      "getBorrowRate(uint256,uint256,uint256)": {
+        "notice": "Gets the current borrow interest rate based on the given asset, total cash, total borrows        and total reserves."
+      }
+    }
+  }
+}
