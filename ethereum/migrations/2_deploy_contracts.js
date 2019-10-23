@@ -25,14 +25,14 @@ var TCompound = artifacts.require('./TCompound.sol')
 
 module.exports = function(deployer, network, accounts) {
   deployer.then(async () => {
-    await deployer.deploy(ExampleDaiCoin); // LOCAL
-    var dai = await ExampleDaiCoin.deployed(); // LOCAL
+    await deployer.deploy(ExampleDaiCoin);
+    var dai = await ExampleDaiCoin.deployed();
     await deployer.deploy(ExampleUsdcCoin);
     var usdc = await ExampleUsdcCoin.deployed();
 
-    await deployer.deploy(MakerMedianizer) // LOCAL
-    var makerMedianizer = await MakerMedianizer.deployed(); // LOCAL
-    await makerMedianizer.poke(padLeft(numberToHex(toWei('200', 'ether')), 64)) // LOCAL
+    await deployer.deploy(MakerMedianizer)
+    var makerMedianizer = await MakerMedianizer.deployed();
+    await makerMedianizer.poke(padLeft(numberToHex(toWei('200', 'ether')), 64))
 
     await deployer.deploy(DAIInterestRateModel, toWei('0.05', 'ether'), toWei('0.12', 'ether'))
     await deployer.deploy(USDCInterestRateModel, toWei('0', 'ether'), toWei('0.2', 'ether'))
@@ -87,7 +87,7 @@ module.exports = function(deployer, network, accounts) {
     await deployer.deploy(Medianizer);
     var medianizer = await Medianizer.deployed();
 
-    // await deployer.deploy(TCompound, comptroller.address) // LOCAL
+    await deployer.deploy(TCompound, comptroller.address)
 
     console.log("DAI_ADDRESS", dai.address)
     console.log("USDC_ADDRESS", usdc.address)

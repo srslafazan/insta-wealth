@@ -2,7 +2,7 @@ const ExampleDaiCoin = artifacts.require("./ExampleDaiCoin.sol");
 const CErc20 = artifacts.require('./CErc20.sol');
 const CEther = artifacts.require('./CEther.sol');
 const Comptroller = artifacts.require('./Comptroller.sol')
-const CompoundModule = artifacts.require('./CompoundModule.sol');
+const TCompound = artifacts.require('./TCompound.sol');
 
 const utils = require('./helpers/Utils.js');
 const { rateToSec, numToBytes32, toBaseUnit } = utils;
@@ -11,12 +11,12 @@ const { toWei, fromWei } = web3.utils;
 const stablecoins = [ { name: 'DAI', unit: 'ether' }, { name: 'USDC', unit: 'mwei' } ]
 
 
-contract("CompoundHelper", accounts => {
+contract("TCompound", accounts => {
   beforeEach(async function () {
     this.token = await ExampleDaiCoin.deployed();
     this.cErc20 = await CErc20.deployed();
     this.cEther = await CEther.deployed();
-    this.compound = await CompoundModule.deployed();
+    this.compound = await TCompound.deployed();
     this.comptroller = await Comptroller.deployed();
 
     console.log(this.token.address)
@@ -36,9 +36,9 @@ contract("CompoundHelper", accounts => {
       describe('deposit', function() {
         it('should work', async function() {
 
-          const result = await this.compound.deposit(toWei('1', 'ether'))
+          const result = await this.compound.mintCToken(this.token.address, this.cErc20.address, toWei('1', 'ether'))
           console.log(result)
-
+          // assert.equal(true, true)
         })
 
       })
