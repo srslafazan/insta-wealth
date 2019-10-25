@@ -19,9 +19,11 @@ contract("TCompound", accounts => {
     this.compound = await TCompound.deployed();
     this.comptroller = await Comptroller.deployed();
 
-    console.log(this.token.address)
-    console.log(this.cErc20.address)
-    console.log(this.cEther.address)
+    console.log('token.address: ', this.token.address)
+    console.log('cErc20.address: ', this.cErc20.address)
+    console.log('compound.address: ', this.compound.address)
+    console.log('cEther.address: ', this.cEther.address)
+    console.log('this.compound', Object.keys(this.compound))
 
   })
 
@@ -35,7 +37,6 @@ contract("TCompound", accounts => {
 
       describe('deposit', function() {
         it('should work', async function() {
-
           const result = await this.compound.mintCToken(this.token.address, this.cErc20.address, toWei('1', 'ether'))
           console.log(result)
           // assert.equal(true, true)

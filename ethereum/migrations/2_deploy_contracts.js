@@ -6,9 +6,9 @@ const BN = require('bignumber.js')
 var ExampleDaiCoin = artifacts.require("./ExampleDaiCoin.sol");
 var ExampleUsdcCoin = artifacts.require("./ExampleUsdcCoin.sol");
 var Medianizer = artifacts.require('./MedianizerExample.sol');
-var Funds = artifacts.require('./Funds.sol');
-var Loans = artifacts.require('./Loans.sol');
-var Sales = artifacts.require('./Sales.sol');
+// var Funds = artifacts.require('./Funds.sol');
+// var Loans = artifacts.require('./Loans.sol');
+// var Sales = artifacts.require('./Sales.sol');
 
 var DAIInterestRateModel = artifacts.require('./DAIInterestRateModel.sol')
 var USDCInterestRateModel = artifacts.require('./USDCInterestRateModel.sol')

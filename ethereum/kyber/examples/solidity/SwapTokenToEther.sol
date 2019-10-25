@@ -1,1 +1,0 @@
-../../contracts/examples/SwapTokenToEther.sol

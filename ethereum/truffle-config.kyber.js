@@ -14,7 +14,7 @@ module.exports = {
 
   compilers: {
     solc: {
-      version: '0.5.12',
+      version: '0.4.18',
       // version: '0.4.18',
       settings: {
         // Required because large size of cToken and cEther contracts

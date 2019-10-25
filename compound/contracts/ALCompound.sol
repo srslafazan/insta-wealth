@@ -1,8 +1,6 @@
-pragma solidity ^0.5.8;
-
 import './DSMath.sol';
-import './Kyber/Kyber.sol';
 
+pragma solidity ^0.5.8;
 
 interface CTokenInterface {
     function redeem(uint redeemTokens) external returns (uint);
@@ -93,11 +91,11 @@ contract Helpers is DSMath {
 }
 
 
-contract TCompound is Helpers {
+contract ALCompound is Helpers {
     /**
      * @dev Deposit ETH/ERC20 and mint Compound Tokens
      */
-    function mintCToken(address erc20, address cErc20, uint tokenAmt) public {
+    function mintCToken(address erc20, address cErc20, uint tokenAmt) internal {
         enterMarket(cErc20);
         ERC20Interface token = ERC20Interface(erc20);
         uint toDeposit = token.balanceOf(address(this));
@@ -113,7 +111,7 @@ contract TCompound is Helpers {
      * @dev Redeem ETH/ERC20 and mint Compound Tokens
      * @param tokenAmt Amount of token To Redeem
      */
-    function redeemUnderlying(address cErc20, uint tokenAmt) public {
+    function redeemUnderlying(address cErc20, uint tokenAmt) internal {
         CTokenInterface cToken = CTokenInterface(cErc20);
         setApproval(cErc20, 10**50, cErc20);
         uint toBurn = cToken.balanceOf(address(this));
@@ -128,7 +126,7 @@ contract TCompound is Helpers {
      * @dev Redeem ETH/ERC20 and burn Compound Tokens
      * @param cTokenAmt Amount of CToken To burn
      */
-    function redeemCToken(address cErc20, uint cTokenAmt) public {
+    function redeemCToken(address cErc20, uint cTokenAmt) internal {
         CTokenInterface cToken = CTokenInterface(cErc20);
         uint toBurn = cToken.balanceOf(address(this));
         if (toBurn > cTokenAmt) {
@@ -138,49 +136,3 @@ contract TCompound is Helpers {
         require(cToken.redeem(toBurn) == 0, "something went wrong");
     }
 }
-
-
-// (KyberNetworkProxy) 0xA57B8a5584442B467b4689F1144D269d096A3daF
-// (SwapEtherToToken) 0x4bf749ec68270027C5910220CEAB30Cc284c7BA2
-// (SwapTokenToEther) 0xaD888d0Ade988EbEe74B8D4F39BF29a8d0fe8A8D
-// (SwapTokenToToken) 0x7C728214be9A0049e6a86f2137ec61030D0AA964
-
-
-
-
-// contract TCompound {
-
-//     function mintCToken(address erc20, address cErc20, uint tokenAmt) public {
-//         enterMarket(cErc20);
-//         ERC20Interface token = ERC20Interface(erc20);
-//         uint toDeposit = token.balanceOf(address(this));
-//         if (toDeposit > tokenAmt) {
-//             toDeposit = tokenAmt;
-//         }
-//         CERC20Interface cToken = CERC20Interface(cErc20);
-//         // setApproval(erc20, toDeposit, cErc20);
-//         assert(cToken.mint(toDeposit) == 0);
-//     }
-
-//     function redeemUnderlying(address cErc20, uint tokenAmt) public {
-//         // CTokenInterface cToken = CTokenInterface(cErc20);
-//         // setApproval(cErc20, 10**50, cErc20);
-//         // uint toBurn = cToken.balanceOf(address(this));
-//         // uint tokenToReturn = wmul(toBurn, cToken.exchangeRateCurrent());
-//         // if (tokenToReturn > tokenAmt) {
-//         //     tokenToReturn = tokenAmt;
-//         // }
-//         // require(cToken.redeemUnderlying(tokenToReturn) == 0, "something went wrong");
-//     }
-
-//     function redeemCToken(address cErc20, uint cTokenAmt) public {
-//         // CTokenInterface cToken = CTokenInterface(cErc20);
-//         // uint toBurn = cToken.balanceOf(address(this));
-//         // if (toBurn > cTokenAmt) {
-//         //     toBurn = cTokenAmt;
-//         // }
-//         // setApproval(cErc20, toBurn, cErc20);
-//         // require(cToken.redeem(toBurn) == 0, "something went wrong");
-//     }
-// }
-
