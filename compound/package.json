@@ -17,8 +17,13 @@
     "truffle-plugin-verify": "^0.3.3",
     "web3": "^1.2.1"
   },
+  "engines": {
+    "node": "~8.12.0"
+  },
   "scripts": {
     "test": "truffle test",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate",
     "test:funds": "truffle test ./test/funds.js",
     "test:loans": "truffle test ./test/loans.js",
     "test:sales": "truffle test ./test/sales.js",
