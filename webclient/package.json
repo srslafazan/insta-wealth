@@ -58,7 +58,7 @@
     "web3": "^1.2.1",
     "ws": "^7.1.2",
     "xmlhttprequest": "^1.8.0",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "@mblackmblack/to-seconds": "^0.1.0",
