@@ -11,7 +11,7 @@
     "add": "^2.0.6",
     "ganache-cli": "^6.7.0",
     "web3": "^1.2.2",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "@atomicloans/loan-bundle": "^0.3.3",
