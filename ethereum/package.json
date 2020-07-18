@@ -30,7 +30,7 @@
     "decimal.js": "^10.2.0",
     "eth-token-recover": "^2.3.4",
     "fs-extra": "^8.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "openzeppelin-solidity": "^2.3.0",
     "openzeppelin-test-helpers": "^0.5.1",
     "scrypt": "^6.0.3",
