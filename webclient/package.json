@@ -46,7 +46,7 @@
     "jest": "^24.9.0",
     "next": "^9.0.5",
     "next-redux-wrapper": "^2.1.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.6.0",
     "ramda": "^0.26.1",
     "react": "^16.7.0",
